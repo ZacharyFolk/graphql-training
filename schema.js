@@ -29,8 +29,7 @@ type Workout {
 }
 
 type Query {
-    friend: Friend
-    exercise: Exercise
+   getFriend(id: ID): Friend
 }
 
 input FriendInput {
