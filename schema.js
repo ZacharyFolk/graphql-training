@@ -5,8 +5,14 @@ type Friend {
      id: ID
      firstName: String
      lastName: String
-     gender: String
+     gender: Gender
      email: String
+}
+
+enum Gender {
+    MALE
+    FEMALE
+    OTHER
 }
 
 type Email {
@@ -36,8 +42,16 @@ input FriendInput {
         id: ID
         firstName: String
         lastName: String
-        gender: String
+        gender: Gender
         email: String
+}
+
+input ExerciseInput {
+    id: ID
+    name: String!
+    reps: Int
+    weight: Int
+    duration: Int
 }
 
 type Mutation {
