@@ -8,6 +8,7 @@ type Friend {
      firstName: String
      lastName: String
      gender: Gender
+     language: String
      email: String
      contacts: [Contact]
 }
@@ -51,6 +52,7 @@ input FriendInput {
         firstName: String
         lastName: String
         gender: Gender
+        language: String
         email: String
         contacts: [ContactInput]
 }
