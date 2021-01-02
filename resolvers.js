@@ -12,6 +12,15 @@ class friend {
     }
 }
 
+const workoutDB = {};
+
+class workout {
+    constructor(id, {name, exercises}){
+        this.id = id;
+        this.name = name;
+        this.exercises = exercises;
+    }
+}
 
 const resolvers = { 
     getFriend: ({ id }) => {
@@ -22,14 +31,13 @@ const resolvers = {
         friendDatabase[id] = input;
         return new friend(id, input);
     },
-    exercise: () => {
-        return {
-            "id": 1234,
-            "name" : "pushups",
-            "reps" : 3,
-            "weight" : 30
-
-        }
+    getWorkout: ({ id }) => {
+        return new workout(id, workoutDB[id]);
+    },
+    createWorkout: ( {input} ) => {
+        let id = require('crypto').randomBytes(10).toString('hex');
+        workoutDB[id] = input;
+        return new workout(id, input);
     }
 };
 

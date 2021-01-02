@@ -37,11 +37,11 @@ type Workout {
     id: ID
     name: String
     exercises: [Exercise]
-    date: Date
 }
 
 type Query {
    getFriend(id: ID): Friend
+   getWorkout(id: ID): Workout
 }
 
 input FriendInput {
@@ -66,8 +66,15 @@ input ExerciseInput {
     duration: Int
 }
 
+input WorkoutInput {
+    id: ID
+    name: String
+    exercises: [ExerciseInput]
+}
+
 type Mutation {
     createFriend(input: FriendInput): Friend
+    createWorkout(input: WorkoutInput): Workout
 }
 
 scalar  Date
