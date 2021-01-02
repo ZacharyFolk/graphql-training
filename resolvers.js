@@ -21,24 +21,27 @@ class workout {
         this.exercises = exercises;
     }
 }
+// resolver map
+export const resolvers = { 
+    Query: {
+        getFriend: ({ id }) => {
+            return new friend(id, friendDatabase[id]);
+        },
+        getWorkout: ({ id }) => {
+            return new workout(id, workoutDB[id]);
+        },
+    },
 
-const resolvers = { 
-    getFriend: ({ id }) => {
-        return new friend(id, friendDatabase[id]);
+    Mutation: {
+        createFriend: ({input}) => {
+            let id = require('crypto').randomBytes(10).toString('hex');
+            friendDatabase[id] = input;
+            return new friend(id, input);
+        },
+        createWorkout: ( {input} ) => {
+            let id = require('crypto').randomBytes(10).toString('hex');
+            workoutDB[id] = input;
+            return new workout(id, input);
+        },
     },
-    createFriend: ({input}) => {
-        let id = require('crypto').randomBytes(10).toString('hex');
-        friendDatabase[id] = input;
-        return new friend(id, input);
-    },
-    getWorkout: ({ id }) => {
-        return new workout(id, workoutDB[id]);
-    },
-    createWorkout: ( {input} ) => {
-        let id = require('crypto').randomBytes(10).toString('hex');
-        workoutDB[id] = input;
-        return new workout(id, input);
-    }
 };
-
-export default resolvers;

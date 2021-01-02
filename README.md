@@ -36,3 +36,7 @@ app.listen(8080, () => console.log('Running on server port localhost:8080/graphq
 ```
 
 * Now you can run the server! `npm start` 
+
+# GraphQL Tools
+* `npm install graphql-tools`
+
