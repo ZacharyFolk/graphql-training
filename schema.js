@@ -7,6 +7,12 @@ type Friend {
      lastName: String
      gender: Gender
      email: String
+     contacts: [Contact]
+}
+
+type Contact {
+    firstName: String
+    lastName: String
 }
 
 enum Gender {
@@ -30,7 +36,7 @@ type Exercise {
 type Workout {
     id: ID
     name: String
-    exercises: [Exercise]!
+    exercises: [Exercise]
     date: Date
 }
 
@@ -44,6 +50,12 @@ input FriendInput {
         lastName: String
         gender: Gender
         email: String
+        contacts: [ContactInput]
+}
+
+input ContactInput {
+    firstName: String
+    lastName: String
 }
 
 input ExerciseInput {
